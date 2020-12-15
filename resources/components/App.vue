@@ -1,10 +1,11 @@
 <template>
     <div id="app">
-        
+        Welcome!
     </div>
 </template>
 
 <script>
+
 export default {
     data () {
         return {}
@@ -18,3 +19,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import '~bulma';
+</style>

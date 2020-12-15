@@ -1,13 +1,20 @@
 <template>
-  <div class="example">{{ msg }}</div>
+    <div id="app">
+        
+    </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      msg: 'Hello world!'
+    data () {
+        return {}
+    },
+    mounted () {
+    },
+    methods: {
+        reload() {
+            this.$settings.reload()
+        }
     }
-  }
 }
 </script>

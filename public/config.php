@@ -1,5 +1,7 @@
 <?php
 
+define('SETTINGS_FILE', '../settings.json');
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -13,11 +15,11 @@ $response = [];
 
 switch($_SERVER['REQUEST_METHOD'] ?? 'GET') {
     case 'GET':
-        $response = json_decode(file_get_contents('./settings.json'));
+        $response = json_decode(file_get_contents(SETTINGS_FILE));
     break;
     case 'POST':
         $data = json_decode($_POST, true);
-        file_put_contents('./settings.json', json_encode($data, JSON_PRETTY_PRINT));
+        file_put_contents(SETTINGS_FILE, json_encode($data, JSON_PRETTY_PRINT));
         $response = "Configuration updated.";
     break;
 }

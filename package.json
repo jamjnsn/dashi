@@ -1,0 +1,31 @@
+{
+  "name": "dasher2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "babel.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bulma": "^0.9.1",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.9",
+    "vuedraggable": "^2.24.3"
+  },
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "vue-loader": "^15.9.5",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

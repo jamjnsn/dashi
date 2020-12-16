@@ -24,9 +24,26 @@ module.exports = {
                     "vue-style-loader",
                     "style-loader",
                     "css-loader",
-                    "sass-loader",
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            additionalData : `@import "resources/sass/utilities.scss";`
+                        }
+                    }
                 ],
             },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [

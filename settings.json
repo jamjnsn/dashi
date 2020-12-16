@@ -1,3 +1,83 @@
 {
-    "test": 2
+    "modules": [
+        {
+            "type": "greeting",
+            "name": "Jamie"
+        },
+        {
+            "type": "link-list",
+            "name": "Utilities",
+            "icon": "settings",
+            "links": [
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                },
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                },
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                }
+            ]
+        },
+        {
+            "type": "link-list",
+            "name": "Utilities",
+            "icon": "settings",
+            "links": [
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                },
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                },
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                }
+            ]
+        },
+        {
+            "type": "link-list",
+            "name": "Utilities",
+            "icon": "settings",
+            "links": [
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                },
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                },
+                {
+                    "name": "Google",
+                    "description": "Search engine",
+                    "icon": "google.png",
+                    "url": "https://google.ca"
+                }
+            ]
+        }
+    ]
 }

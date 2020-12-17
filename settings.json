@@ -1,81 +1,102 @@
 {
+    "name": "Jamie",
+    "theme": {
+        "accentColor": "#1FBC9C",
+        "topbarHasBackground": true
+    },
     "modules": [
         {
-            "type": "greeting",
-            "name": "Jamie"
-        },
-        {
             "type": "link-list",
             "name": "Utilities",
             "icon": "settings",
             "links": [
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 0,
+                    "icon": "ubiquiti",
+                    "name": "Router",
+                    "description": "EdgeRouter X",
+                    "url": "https:\/\/erx"
                 },
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 1,
+                    "icon": "ubiquiti",
+                    "name": "Unifi",
+                    "description": "Network management",
+                    "url": "https:\/\/192.168.0.90:8443\/"
                 },
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 2,
+                    "name": "Portainer",
+                    "description": "Container management",
+                    "url": "http:\/\/192.168.0.90:9000\/"
+                },
+                {
+                    "id": 3,
+                    "name": "Pi-hole",
+                    "description": "DNS ad-blocker",
+                    "url": "http:\/\/pi.hole"
+                },
+                {
+                    "id": 4,
+                    "name": "ProxMox",
+                    "description": "Hypervisor",
+                    "url": "https:\/\/pve:8006\/"
                 }
             ]
         },
         {
             "type": "link-list",
             "name": "Utilities",
-            "icon": "settings",
+            "icon": "database",
             "links": [
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 0,
+                    "name": "qBittorrent",
+                    "description": "Torrent downloader",
+                    "url": "https:\/\/torrents.jamnet.cc\/"
                 },
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 1,
+                    "name": "sabnzbd",
+                    "description": "NZB downloader",
+                    "url": "https:\/\/nzb.jamnet.cc\/"
                 },
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 2,
+                    "name": "Hydra2",
+                    "description": "Torrent & NZB search",
+                    "url": "https:\/\/hydra.jamnet.cc\/"
                 }
             ]
         },
         {
             "type": "link-list",
-            "name": "Utilities",
-            "icon": "settings",
+            "name": "Media",
+            "icon": "play",
             "links": [
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 0,
+                    "name": "Jellyfin",
+                    "description": "Streaming media server",
+                    "url": "https://tv.jamnet.cc/"
                 },
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 1,
+                    "name": "Ombi",
+                    "description": "Media requests",
+                    "url": "https://tv.jamnet.cc/"
                 },
                 {
-                    "name": "Google",
-                    "description": "Search engine",
-                    "icon": "google.png",
-                    "url": "https://google.ca"
+                    "id": 2,
+                    "name": "Sonarr",
+                    "description": "TV shows",
+                    "url": "https://sonarr.jamnet.cc/"
+                },
+                {
+                    "id": 3,
+                    "name": "Radarr",
+                    "description": "Movies",
+                    "url": "https://radarr.jamnet.cc/"
                 }
             ]
         }

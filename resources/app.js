@@ -14,6 +14,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 // Set globals
 Vue.prototype.$settings = settings
 Vue.prototype.$http = http
+Vue.prototype.$inEditMode = false
 
 // Create app
 var app = new Vue({

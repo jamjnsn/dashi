@@ -18,6 +18,7 @@
     "vue": "^2.6.12",
     "vue-feather": "^1.1.1",
     "vue-router": "^3.4.9",
+    "vue-swatches": "^2.1.0",
     "vuedraggable": "^2.24.3"
   },
   "devDependencies": {

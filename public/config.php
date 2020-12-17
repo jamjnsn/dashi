@@ -6,11 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (!isset($_SERVER["HTTP_HOST"]) && isset($argv[1])) {
-    $_SERVER['REQUEST_METHOD'] = 'POST';
-    $_POST = $argv[1];
-}
-
+$data = json_decode(file_get_contents("php://input"), true);
 $response = [];
 
 switch($_SERVER['REQUEST_METHOD'] ?? 'GET') {
@@ -18,7 +14,7 @@ switch($_SERVER['REQUEST_METHOD'] ?? 'GET') {
         $response = json_decode(file_get_contents(SETTINGS_FILE));
     break;
     case 'POST':
-        $data = json_decode($_POST, true);
+        // $reponse['data'] = $data;
         file_put_contents(SETTINGS_FILE, json_encode($data, JSON_PRETTY_PRINT));
         $response = "Configuration updated.";
     break;

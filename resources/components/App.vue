@@ -1,11 +1,16 @@
 <template>
-    <div id="app">
+    <div id="app" :style="theme">
         <topbar></topbar>
         <div class="container">
             <div class="modules">
-                <component v-for="(module, index) in modules" v-bind:is="module.type" :settings="module"></component>
+                <component 
+                    v-for="(module, index) in settings.modules" 
+                    v-bind:is="module.type" 
+                    :settings="module">
+                    </component>
             </div>
         </div>
+        <settings></settings>
     </div>
 </template>
 
@@ -13,19 +18,27 @@
     export default {
         data () {
             return {
-                ...this.$settings.data
+                settings: this.$settings.data
             }
         },
         mounted () {
         },
         methods: {
-            reload() {
-                this.$settings.reload()
+        },
+        computed: {
+            theme() {
+                return {
+                    '--accent-color': this.settings.theme.accentColor
+                }
             }
         },
-        components: {
-            // Menu,
-            // Module
+        watch: {
+            settings: {
+                handler(val) {
+                    this.$settings.save()
+                },
+                deep: true
+            }
         }
     }
 </script>
@@ -40,6 +53,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
     }
 </style>

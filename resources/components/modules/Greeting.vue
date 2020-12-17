@@ -1,6 +1,6 @@
 <template>
     <div class="greeting">
-        Hello, {{ name }}!
+        Hello, {{ this.$settings.data.name }}!
     </div>
 </template>
 

@@ -8,6 +8,23 @@ A customizable self-hosted dashboard.
 - Start the server: `npm run serve`
 - Head to `http://localhost:8000` (or use whatever port you specified in `settings.json`)
 
+## Docker
+### Compose
+**docker-compose.yml example:**
+```
+services:
+  dashi:
+    image: jamjnsn/dashi
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8000:8000
+    volumes:
+      - data:/usr/src/app
+volumes:
+  data:
+```
+
 ## Configuration
 Configuration and customization settings are read from `/settings.json`. If this file does not exist when the server is started, it will be created with the contents of `settings.default.json`.
 

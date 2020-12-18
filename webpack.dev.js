@@ -10,7 +10,7 @@ module.exports = {
         index: path.resolve(__dirname, "resources", "app.js")
     },
     output: {
-        path: path.resolve(__dirname, "public")
+        path: path.resolve(__dirname, "build")
     },
     module: {
         rules: [

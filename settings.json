@@ -1,104 +1,106 @@
 {
-    "name": "Jamie",
-    "theme": {
-        "accentColor": "#1FBC9C",
-        "topbarHasBackground": true
-    },
-    "modules": [
+  "host": "localhost",
+  "port": 8000,
+  "name": "Jami",
+  "theme": {
+    "accentColor": "#F2C511",
+    "topbarHasBackground": false
+  },
+  "modules": [
+    {
+      "type": "link-list",
+      "name": "Utilities",
+      "icon": "settings",
+      "links": [
         {
-            "type": "link-list",
-            "name": "Utilities",
-            "icon": "settings",
-            "links": [
-                {
-                    "id": 0,
-                    "icon": "ubiquiti",
-                    "name": "Router",
-                    "description": "EdgeRouter X",
-                    "url": "https:\/\/erx"
-                },
-                {
-                    "id": 1,
-                    "icon": "ubiquiti",
-                    "name": "Unifi",
-                    "description": "Network management",
-                    "url": "https:\/\/192.168.0.90:8443\/"
-                },
-                {
-                    "id": 2,
-                    "name": "Portainer",
-                    "description": "Container management",
-                    "url": "http:\/\/192.168.0.90:9000\/"
-                },
-                {
-                    "id": 3,
-                    "name": "Pi-hole",
-                    "description": "DNS ad-blocker",
-                    "url": "http:\/\/pi.hole"
-                },
-                {
-                    "id": 4,
-                    "name": "ProxMox",
-                    "description": "Hypervisor",
-                    "url": "https:\/\/pve:8006\/"
-                }
-            ]
+          "id": 0,
+          "icon": "ubiquiti",
+          "name": "Router",
+          "description": "EdgeRouter X",
+          "url": "https://erx"
         },
         {
-            "type": "link-list",
-            "name": "Utilities",
-            "icon": "database",
-            "links": [
-                {
-                    "id": 0,
-                    "name": "qBittorrent",
-                    "description": "Torrent downloader",
-                    "url": "https:\/\/torrents.jamnet.cc\/"
-                },
-                {
-                    "id": 1,
-                    "name": "sabnzbd",
-                    "description": "NZB downloader",
-                    "url": "https:\/\/nzb.jamnet.cc\/"
-                },
-                {
-                    "id": 2,
-                    "name": "Hydra2",
-                    "description": "Torrent & NZB search",
-                    "url": "https:\/\/hydra.jamnet.cc\/"
-                }
-            ]
+          "id": 1,
+          "icon": "ubiquiti",
+          "name": "Unifi",
+          "description": "Network management",
+          "url": "https://192.168.0.90:8443/"
         },
         {
-            "type": "link-list",
-            "name": "Media",
-            "icon": "play",
-            "links": [
-                {
-                    "id": 0,
-                    "name": "Jellyfin",
-                    "description": "Streaming media server",
-                    "url": "https://tv.jamnet.cc/"
-                },
-                {
-                    "id": 1,
-                    "name": "Ombi",
-                    "description": "Media requests",
-                    "url": "https://tv.jamnet.cc/"
-                },
-                {
-                    "id": 2,
-                    "name": "Sonarr",
-                    "description": "TV shows",
-                    "url": "https://sonarr.jamnet.cc/"
-                },
-                {
-                    "id": 3,
-                    "name": "Radarr",
-                    "description": "Movies",
-                    "url": "https://radarr.jamnet.cc/"
-                }
-            ]
+          "id": 2,
+          "name": "Portainer",
+          "description": "Container management",
+          "url": "http://192.168.0.90:9000/"
+        },
+        {
+          "id": 3,
+          "name": "Pi-hole",
+          "description": "DNS ad-blocker",
+          "url": "http://pi.hole"
+        },
+        {
+          "id": 4,
+          "name": "ProxMox",
+          "description": "Hypervisor",
+          "url": "https://pve:8006/"
         }
-    ]
+      ]
+    },
+    {
+      "type": "link-list",
+      "name": "Utilities",
+      "icon": "database",
+      "links": [
+        {
+          "id": 0,
+          "name": "qBittorrent",
+          "description": "Torrent downloader",
+          "url": "https://torrents.jamnet.cc/"
+        },
+        {
+          "id": 2,
+          "name": "Hydra2",
+          "description": "Torrent & NZB search",
+          "url": "https://hydra.jamnet.cc/"
+        },
+        {
+          "id": 1,
+          "name": "sabnzbd",
+          "description": "NZB downloader",
+          "url": "https://nzb.jamnet.cc/"
+        }
+      ]
+    },
+    {
+      "type": "link-list",
+      "name": "Media",
+      "icon": "play",
+      "links": [
+        {
+          "id": 0,
+          "name": "Jellyfin",
+          "description": "Streaming media server",
+          "url": "https://tv.jamnet.cc/"
+        },
+        {
+          "id": 1,
+          "name": "Ombi",
+          "description": "Media requests",
+          "url": "https://tv.jamnet.cc/"
+        },
+        {
+          "id": 2,
+          "name": "Sonarr",
+          "description": "TV shows",
+          "url": "https://sonarr.jamnet.cc/"
+        },
+        {
+          "id": 3,
+          "name": "Radarr",
+          "description": "Movies",
+          "url": "https://radarr.jamnet.cc/"
+        }
+      ]
+    }
+  ]
 }

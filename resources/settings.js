@@ -1,45 +1,28 @@
-import data from '../settings.json'
 import http from 'axios'
 
-export const settingTypes = {
-    COLOR: 'color',
-    BOOLEAN: 'boolean',
-    STRING: 'string'
-}
-
 export default {
-    data: data,
+    data: {},
     save: function() {
         console.log('Saving settings...')
 
-        http.post('/config.php', this.data)
+        return http.put('/settings', this.data)
             .then(function(response) {
-                console.log(response)
+                return response.data
             })
             .catch(function(error) {
                 console.log(error)
             })
-            .then(function() {
-                //
-            })
     },
-    reload: function() {
-        console.log('Reloading settings...')
-        http.get('/config.php')
+    load: function() {
+        console.log('Loading settings...')
+        let self = this
+
+        return http.get('/settings')
             .then(function(response) {
-                console.log(response)
+                self.data = response.data
             })
             .catch(function(error) {
                 console.log(error)
             })
-            .then(function() {
-                //
-            })
-    },
-    schema: {
-        theme: {
-            accentColor: settingTypes.COLOR,
-            topbarHasBackground: settingTypes.BOOLEAN
-        }
     }
 }

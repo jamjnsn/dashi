@@ -4,6 +4,7 @@ import App from './components/App.vue'
 
 import settings from './settings'
 import http from 'axios'
+import { CompatSource } from 'webpack-sources'
 
 // Register components
 Vue.use(VueFeather)
@@ -12,12 +13,18 @@ const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Set globals
-Vue.prototype.$settings = settings
-Vue.prototype.$http = http
-Vue.prototype.$inEditMode = false
 
-// Create app
-var app = new Vue({
-    el: '#app',
-    render: h => h(App),
-})
+settings
+    .load()
+    .then(() => {
+        Vue.prototype.$settings = settings
+        Vue.prototype.$http = http
+        Vue.prototype.$inEditMode = false
+
+        // Create app
+        var app = new Vue({
+            el: '#app',
+            render: h => h(App),
+        })
+    })
+

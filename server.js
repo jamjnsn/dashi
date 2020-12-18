@@ -25,7 +25,7 @@ app.listen(port, () => {
 });
 
 app.use(express.static('build'));
-app.use('/icons', express.static('icons'));
+app.use(express.static('public'));
 
 app.get("/settings", (req, res, next) => {
     const fs = require('fs');

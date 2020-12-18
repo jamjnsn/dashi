@@ -1,5 +1,4 @@
-# Dashi
-A customizable self-hosted dashboard.
+![logo-full](https://user-images.githubusercontent.com/1876231/102657970-85419900-412b-11eb-8513-a58e38a73aa5.png)
 
 ![Screenshot of an example configuration](https://user-images.githubusercontent.com/1876231/102650793-4b1eca00-4120-11eb-9798-0a6728aa1dbf.png)
 

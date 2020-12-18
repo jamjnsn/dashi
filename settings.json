@@ -52,12 +52,6 @@
       "icon": "database",
       "links": [
         {
-          "id": 0,
-          "name": "qBittorrent",
-          "description": "Torrent downloader",
-          "url": "https://torrents.jamnet.cc/"
-        },
-        {
           "id": 2,
           "name": "Hydra2",
           "description": "Torrent & NZB search",
@@ -68,6 +62,12 @@
           "name": "sabnzbd",
           "description": "NZB downloader",
           "url": "https://nzb.jamnet.cc/"
+        },
+        {
+          "id": 0,
+          "name": "qBittorrent",
+          "description": "Torrent downloader",
+          "url": "https://torrents.jamnet.cc/"
         }
       ]
     },

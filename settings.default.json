@@ -1,0 +1,14 @@
+{
+    "host": "localhost",
+    "port": 8000,
+    "name": "friend",
+    "theme": {
+      "accentColor": "#F2C511",
+      "topbarHasBackground": true
+    },
+    "modules": [
+        {
+            "type": "greeting"
+        }
+    ]
+}

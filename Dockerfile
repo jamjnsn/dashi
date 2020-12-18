@@ -3,6 +3,7 @@ WORKDIR /usr/src/app
 
 # Copy full source to workdir
 COPY . .
+COPY settings.default.json ./settings.json
 
 RUN npm install
 EXPOSE 8000

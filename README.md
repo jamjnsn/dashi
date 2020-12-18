@@ -1,5 +1,4 @@
-# Dashi
-A customizable self-hosted dashboard.
+![logo-full](https://user-images.githubusercontent.com/1876231/102657970-85419900-412b-11eb-8513-a58e38a73aa5.png)
 
 ![Screenshot of an example configuration](https://user-images.githubusercontent.com/1876231/102650793-4b1eca00-4120-11eb-9798-0a6728aa1dbf.png)
 
@@ -7,6 +6,23 @@ A customizable self-hosted dashboard.
 - Clone this repository: `git clone https://github.com/jamjnsn/dashi.git`
 - Start the server: `npm run serve`
 - Head to `http://localhost:8000` (or use whatever port you specified in `settings.json`)
+
+## Docker
+### Compose
+**docker-compose.yml example:**
+```
+services:
+  dashi:
+    image: jamjnsn/dashi
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8000:8000
+    volumes:
+      - data:/usr/src/app
+volumes:
+  data:
+```
 
 ## Configuration
 Configuration and customization settings are read from `/settings.json`. If this file does not exist when the server is started, it will be created with the contents of `settings.default.json`.

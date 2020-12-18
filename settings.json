@@ -13,18 +13,18 @@
       "icon": "settings",
       "links": [
         {
-          "id": 0,
-          "icon": "ubiquiti",
-          "name": "Router",
-          "description": "EdgeRouter X",
-          "url": "https://erx"
-        },
-        {
           "id": 1,
           "icon": "ubiquiti",
           "name": "Unifi",
           "description": "Network management",
           "url": "https://192.168.0.90:8443/"
+        },
+        {
+          "id": 0,
+          "icon": "ubiquiti",
+          "name": "Router",
+          "description": "EdgeRouter X",
+          "url": "https://erx"
         },
         {
           "id": 2,

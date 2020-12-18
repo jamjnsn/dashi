@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "build-dev": "webpack --config webpack.dev.js",
     "dev": "webpack --watch --config webpack.dev.js & npm start",
     "serve": "npm run build && npm start"
   },
@@ -18,11 +18,13 @@
     "bulma": "^0.9.1",
     "express": "^4.17.1",
     "feather-icons": "^4.28.0",
+    "sass-extract-loader": "^1.1.0",
     "vue": "^2.6.12",
     "vue-feather": "^1.1.1",
     "vue-router": "^3.4.9",
     "vue-swatches": "^2.1.0",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^2.24.3",
+    "webpack-merge": "^5.7.2"
   },
   "devDependencies": {
     "browser-sync": "^2.26.13",

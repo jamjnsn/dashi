@@ -1,4 +1,4 @@
-![logo-full](https://user-images.githubusercontent.com/1876231/102657970-85419900-412b-11eb-8513-a58e38a73aa5.png)
+![dashi](https://user-images.githubusercontent.com/1876231/102696464-6999c980-41e3-11eb-91c4-860e8f0c98e6.png)
 
 ![Screenshot of an example configuration](https://user-images.githubusercontent.com/1876231/102650793-4b1eca00-4120-11eb-9798-0a6728aa1dbf.png)
 

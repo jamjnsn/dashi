@@ -23,6 +23,11 @@
     </div>
 
     <div class="setting">
+        <label>URL</label>
+        <input class="input" type="text" v-model="data.link.url" />
+    </div>
+
+    <div class="setting">
         <a class="button is-danger" @click="deleteSelf()">
             <feather type="trash-2"></feather>
             <span>Delete</span>

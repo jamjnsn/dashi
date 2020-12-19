@@ -10,8 +10,8 @@ if (!fs.existsSync(settingsFile)) {
 
 const settings = require(settingsFile);
 
-const host = settings.host ?? 'localhost';
-const port = settings.port ?? 8000;
+const host = process.env.HOST ?? 'localhost';
+const port = process.env.PORT ?? 8000;
 
 var express = require("express");
 var app = express();

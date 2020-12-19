@@ -1,6 +1,5 @@
 {
-    "host": "localhost",
-    "port": 8000,
+    "pageTitle": "Dashi",
     "name": "friend",
     "theme": {
       "accentColor": "#F2C511",

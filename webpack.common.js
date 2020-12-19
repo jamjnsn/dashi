@@ -3,6 +3,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader');
 
+const settings = require("./settings.json");
+
 module.exports = {
     mode: 'development',
     entry: {
@@ -34,7 +36,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "resources", "app.html")
+            template: path.resolve(__dirname, "resources", "app.html"),
+            title: process.env.PAGE_TITLE ?? "Dashi"
         }),
         new VueLoaderPlugin()
     ]

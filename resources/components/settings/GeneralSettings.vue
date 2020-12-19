@@ -27,8 +27,13 @@
     </div>
 
     <div class="setting">
-        <label>Name</label>
+        <label>Your Name</label>
         <input class="input" type="text" v-model="settings.name" />
+    </div>
+
+    <div class="setting">
+        <label>Page Title</label>
+        <input class="input" type="text" v-model="settings.pageTitle" />
     </div>
 </div>
 </template>

@@ -18,6 +18,7 @@
     "body-parser": "^1.19.0",
     "bulma": "^0.9.1",
     "express": "^4.17.1",
+    "extract-loader": "^5.1.0",
     "feather-icons": "^4.28.0",
     "sass-extract-loader": "^1.1.0",
     "uuid": "^8.3.2",

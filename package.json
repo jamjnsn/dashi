@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "feather-icons": "^4.28.0",
     "sass-extract-loader": "^1.1.0",
+    "uuid": "^8.3.2",
     "vue": "^2.6.12",
     "vue-feather": "^1.1.1",
     "vue-router": "^3.4.9",

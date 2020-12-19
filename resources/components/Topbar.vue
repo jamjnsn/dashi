@@ -7,7 +7,7 @@
         <div></div>
         
         <div class="controls">
-            <div class="menu-toggle" @click="$root.$emit('settingsOpened');">
+            <div class="menu-toggle" @click="$root.$emit('settingsOpened', 'GeneralSettings');">
                 <feather type="menu" size="24"></feather>
             </div>
         </div>

@@ -1,0 +1,66 @@
+@import "vue-swatches/dist/vue-swatches.css";
+
+.slide-enter-active, .slide-leave-active {
+    transition: all 0.2s ease;
+}
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all 1s ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-button {
+    cursor: pointer;
+    &:hover {
+        color: var(--accent-color);
+    }
+}
+
+.settings {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(50px);
+    $shadow: transparentize($black, 0.5);
+    box-shadow: 0 0 15px $shadow, 0 0 35px $shadow, 0 0 70px $shadow;
+    padding: 2em;
+}
+
+.setting {
+    background: $black-bis;
+    padding: 1em;
+    border-radius: 4px;
+
+    &:not(:last-child) {
+        margin-bottom: 0.5em;
+    }
+
+    &:not(.inline-field) label {
+        margin-bottom: 0.1em;
+    }
+}
+
+.inline-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+}

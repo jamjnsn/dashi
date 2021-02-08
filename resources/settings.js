@@ -1,36 +1,42 @@
 import http from 'axios'
 
 export default {
-    saveQueued: false,
+    saving: false,
     pendingPromise: null,
+    saveQueued: false,
 
     data: {},
     save: async function() {
-        if(this.pendingPromise) {
-            if(this.saveQueued) {
-                return this.pendingPromise
-            } else {
+        if(this.saving) {
+            if(!this.saveQueued) {
                 this.saveQueued = true
-                await this.pendingPromise
-                console.log('hi')
-                return this.save()
             }
+
+            return this.pendingPromise
         } else {
+            this.saveQueued = false
+            this.saving = true
+    
             console.log('Saving settings...')
-
+    
             var self = this
-
-            this.pendingPromise = http.put('/settings', this.data)
+    
+            http.post('/settings', this.data)
                 .then(function(response) {
-                    console.log(this.saveQueued)
-                    this.pendingPromise = null
+                    // Success
+                    self.pendingPromise = null
+                    self.saving = false
+
+                    if(self.saveQueued) {
+                        self.save()
+                    }
+
                     return response.data
                 })
                 .catch(function(error) {
                     console.log(error)
-                    this.save()
                 })
-
+    
             return this.pendingPromise
         }
     },

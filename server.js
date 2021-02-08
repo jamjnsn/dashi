@@ -34,7 +34,8 @@ app.get("/settings", (req, res, next) => {
     res.json(settings);
 });
 
-app.put("/settings", (req, res) => {
+app.post("/settings", (req, res) => {
     const fs = require('fs');
     fs.writeFileSync(settingsFile, JSON.stringify(req.body, null, 2));
+    res.send(200)
 });

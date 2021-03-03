@@ -19,8 +19,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - icons:/usr/src/app/public/icons
-      - /path/to/settings.json:/usr/src/app/settings.json
+      - config:/usr/src/app/config
 volumes:
-  icons:
+  config:
 ```

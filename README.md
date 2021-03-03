@@ -2,6 +2,9 @@
 
 ![Screenshot of an example configuration](https://user-images.githubusercontent.com/1876231/102650793-4b1eca00-4120-11eb-9798-0a6728aa1dbf.png)
 
+#### Please Note
+*This project is still in development, so there will be bugs and sweeping changes.*
+
 ## Getting Started
 - Clone this repository: `git clone https://github.com/jamjnsn/dashi.git`
 - Start the server: `npm run serve`

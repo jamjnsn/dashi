@@ -1,17 +1,27 @@
 <template>
 <div class="feather-selector">
-    <div class="current-icon" @click="iconSelectOpen = !iconSelectOpen">
+    <div 
+        class="current-icon" 
+        @click="toggleIconList()"
+        v-bind:class="{ 'is-active': iconSelectOpen }"
+        >
         <feather :type="type" size="20"></feather>
     </div>
 
     <transition name="fade">
-    <div class="icon-list" v-if="iconSelectOpen">
+    <div 
+        class="icon-list" 
+        v-if="iconSelectOpen"
+        >
         <div class="icon-search">
             <input 
+                ref="search"
                 type="text" 
                 class="input" 
                 placeholder="Search..." 
-                @input="filterIcons($event.target.value)" />
+                @input="filterIcons($event.target.value)" 
+                @blur="iconSelectOpen = false"
+                />
         </div>
 
         <div class="icons">
@@ -39,6 +49,15 @@ export default {
             this.filteredIcons = this.icons.filter(icon => {
                 return icon.name.includes(query)
             })
+        },
+        toggleIconList() {
+            this.iconSelectOpen = !this.iconSelectOpen
+
+            if(this.iconSelectOpen) {
+                this.$nextTick(function () {
+                    this.$refs.search.focus()
+                })
+            }
         }
     },
     data() {
@@ -65,6 +84,12 @@ export default {
 
 .current-icon {
     cursor: pointer;
+    transition: color 0.1s ease-in-out;
+
+    &:hover {
+        color: var(--accent-color);
+        filter: drop-shadow(0 0 5px var(--accent-color));
+    }
 }
 
 .icon-list {
@@ -72,18 +97,27 @@ export default {
     display: flex;
     flex-direction: column;
     top: 2em;
-    left: -2em;
-    width: 280px;
-    height: 320px;
+    width: 285px;
+    height: 330px;
     background: $black-ter;
     border: 0.5em solid $black-ter;
     z-index: 10;
     border-radius: 5px;
     box-shadow: 0 5px 45px rgba(0,0,0,0.6);
+    padding: 0.25em;
 
     .icon-search {
         flex: 0 0 auto;
-        padding-bottom: 0.5em;
+        padding-bottom: 1em;
+
+        input {
+            border: 0;
+            outline: 0;
+            
+            &:focus {
+                border: 3px solid var(--accent-color);
+            }
+        }
     }
 
     .icons {
@@ -96,7 +130,13 @@ export default {
 
     .icon {
         cursor: pointer;
-        margin: 0.5em;
+        padding: 0.5em;
+        box-sizing: content-box;
+
+        &:hover {
+            background: $black-bis;
+            border-radius: 3px;
+        }
     }
 }
 </style>

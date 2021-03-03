@@ -35,8 +35,7 @@ header {
     width: 400px;
     background: rgba(0,0,0,0.7);
     backdrop-filter: blur(50px);
-    $shadow: transparentize($black, 0.5);
-    box-shadow: 0 0 15px $shadow, 0 0 35px $shadow, 0 0 70px $shadow;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7), 0 0 50px rgba(0,0,0,0.7);
     padding: 2em;
 }
 

@@ -39,3 +39,29 @@ app.post("/settings", (req, res) => {
     fs.writeFileSync(settingsFile, JSON.stringify(req.body, null, 2));
     res.send(200)
 });
+
+
+const multer = require("multer");
+
+function getFilename(file, newFileName) {
+    let ext = file.originalname.split('.').pop();
+    let filename = newFileName;
+    return filename + '.' + ext;
+}
+
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, "public/icons/"); 
+    },
+    filename: function(req, file, cb) {
+        cb(null, getFilename(file, req.body.linkId));
+    }
+});
+
+var upload = multer({ storage: storage });
+
+app.post("/icons/upload", upload.single("icon"), (req, res) => {
+    res.json({
+        fileName: getFilename(req.file, req.body.linkId)
+    })
+});

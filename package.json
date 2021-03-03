@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "extract-loader": "^5.1.0",
     "feather-icons": "^4.28.0",
+    "multer": "^1.4.2",
     "sass-extract-loader": "^1.1.0",
     "uuid": "^8.3.2",
     "vue": "^2.6.12",

@@ -25,5 +25,6 @@ export default {
     flex: 0 0 100%;
     text-align: center;
     font-size: $size-3;
+    padding: 2em;
 }
 </style>

@@ -2,9 +2,23 @@
     <div class="module">
         <div class="module-header">
             <h2 class="module-title">
-                <feather :type="settings.icon" size="18"></feather>
-                <span>{{ settings.name }}</span>
+                <feather :type="settings.icon" size="20"></feather>
+                <div class="module-name">{{ settings.name }}</div>
             </h2>
+
+            <div class="controls">
+                <a class="control-button"
+                    v-on:click.prevent
+                    @click="$root.$emit('settingsOpened', 'LinkListSettings', {
+                        linkList: settings
+                    });">
+                    <feather type="settings" size="18"></feather>
+                </a>
+
+                <a class="control-button" @click="addNewLink()">
+                    <feather type="plus" size="18"></feather>
+                </a>
+            </div>
         </div>
 
         <div class="module-body">
@@ -22,9 +36,7 @@
                         :href="link.url"
                         :key="link.id"
                         class="link">
-                        <div class="icon-container">
-                            <img :src="getIconPath(link)" />
-                        </div>
+                        <link-icon class="icon-container" :link="link" />
 
                         <div class="details">
                             <h3>{{ link.name }}</h3>
@@ -44,9 +56,6 @@
                     </a>
                 </transition-group>
             </draggable>
-            <a class="add-link-button" @click="addNewLink()">
-                <feather type="plus"></feather>
-            </a>
         </div>
     </div>
 </template>
@@ -89,7 +98,7 @@
                 this.settings.links.push({
                     id: uuid(),
                     name: "New link",
-                    icon: "dashi",
+                    icon: "dashi.png",
                     url: "#"
                 })
             },
@@ -126,6 +135,16 @@
 <style scoped lang="scss">
 @import '~bulma';
 
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .icon {
+        padding-right: 0.3em;
+    }
+}
+
 .flip-list-move {
     transition: transform 0.5s;
 }
@@ -134,42 +153,69 @@
     transition: transform 0s;
 }
 
-.module {
-    padding: 1em;
+.module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6em;
 
-    .add-link-button {
-        opacity: 0;
-        transition: opacity 0.4s;
+    .module-title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+        font-weight: bold;
 
-        color: $white-bis;
-        transition: all 0.1s;
-        text-align: center;
-        padding: 1em;
-        background-color: transparent;
-        border-radius: 5px;
-        display: block;
+        span {
+            margin-left: 0.2em;
+        }
 
-        &:hover {
-            color: $white-bis;
-            opacity: 1 !important;
-            text-shadow: 0 1px 5px transparentize($white, 0.5);
-            background-color: $black-bis;
+        .module-name {
+            @extend .is-size-5;
+            margin-left: 0.4em;
         }
     }
 
-    &:hover .add-link-button {
-        opacity: 0.2;
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .control-button {
+            opacity: 0;
+            transition: opacity 0.4s;
+
+            color: $white-bis;
+            transition: all 0.1s;
+            text-align: center;
+            background-color: transparent;
+            border-radius: 5px;
+            display: block;
+            transition: all 0.1s ease-in-out;
+            padding: 0.1em 0.5em;
+
+            &:not(:last-child) {
+                margin-right: 0.3em;
+            }
+
+            &:hover {
+                color: $white;
+                opacity: 1 !important;
+                text-shadow: 0 1px 5px transparentize($white, 0.5);
+                background: var(--accent-color);
+            }
+        }
     }
 }
 
-.module-title {
-    @extend .is-size-5;
-    font-weight: bold;
-    padding: 0.6em;
-
-    span {
-        margin-left: 0.2em;
+.module {
+    &:hover .control-button {
+        opacity: 0.3;
     }
+}
+
+.link-list {
+    min-height: 100px;
 }
 
 .link-list:not(.is-dragging) {
@@ -192,6 +238,7 @@
     background-color: lighten($black, 10%);
     border: 3px solid transparent;
     transition: border-color 0.1s ease-in-out;
+    transition: transform 0.1s ease-in-out;
     border-radius: 5px;
     margin-bottom: 0.5em;
 
@@ -207,6 +254,7 @@
 
     &:hover {
         color: inherit;
+        transform: scale(1.02);
 
         .edit-link-button {
             opacity: 0.3;
@@ -227,8 +275,6 @@
         }
     }
 }
-
-
 
 .details {
     margin-left: 1em;
@@ -257,9 +303,5 @@
         height: 100%;
         border-radius: 3px;
     }
-}
-
-.module {
-    flex: 1 1 calc(100% / 3);
 }
 </style>

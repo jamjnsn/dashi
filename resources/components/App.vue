@@ -1,13 +1,18 @@
 <template>
     <div id="app" :style="theme">
         <topbar></topbar>
-        <div class="container">
+        <div class="container" id="content">
             <div class="modules">
                 <component 
                     v-for="(module, index) in settings.modules" 
                     v-bind:is="module.type" 
-                    :settings="module">
+                    :settings="module"
+                    :key="module.id">
                     </component>
+                <div class="module spacer"></div>
+                <div class="module spacer"></div>
+                <div class="module spacer"></div>
+                <div class="module spacer"></div>
             </div>
         </div>
         <settings></settings>
@@ -52,7 +57,19 @@
         margin-top: 50px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
+
+        .module {
+            padding: 0 1em 1em 1em;
+            flex: 1 0 400px;
+            width: 400px;
+        }
+
+        .spacer {
+            
+        }
+    }
+
+    #content {
+        overflow-y: auto;
     }
 </style>

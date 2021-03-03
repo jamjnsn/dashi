@@ -4,8 +4,18 @@
 @import 'utilities';
 @import '~bulma';
 
+* * {
+    
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: var(--accent-color);
+    color: $white;
+}
+
 html {
-    overflow: hidden;
+    overflow: auto;
 }
 
 i.feather {
@@ -16,4 +26,8 @@ i.feather {
     h1, h2, h3, h4, h5, h6, label {
         color: $white-ter;
     }
+}
+
+.has-background-accent {
+    background-color: var(--accent-color);
 }

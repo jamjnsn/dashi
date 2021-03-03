@@ -26,9 +26,13 @@
         </div>
     </div>
 
-    <div class="setting">
-        <label>Your Name</label>
-        <input class="input" type="text" v-model="settings.name" />
+    <div class="setting inline-field">
+        <label>Add Category</label>
+        <div>
+            <a class="button" @click="addModule('link-list')">
+                <feather type="plus"></feather>
+            </a>
+        </div>
     </div>
 </div>
 </template>
@@ -36,8 +40,30 @@
 <script>
 import VSwatches from 'vue-swatches'
 import Toggle from '../Toggle.vue'
+import { v4 as uuid } from 'uuid'
+
+import modules from '/modules.json'
 
 export default {
+    methods: {
+        addModule(type) {
+            let moduleDefinition = modules.find((obj) => {
+                return obj.type === type
+            })
+
+            if(moduleDefinition) {
+                let module = { 
+                    id: uuid(),
+                    type: type,
+                    ...moduleDefinition.template 
+                }
+
+                this.$settings.data.modules.push(module)
+            } else {
+                console.log("Module type "+type+" not found!")
+            }
+        }
+    },
     data() {
         return {
             settings: this.$settings.data

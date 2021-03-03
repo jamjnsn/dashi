@@ -1,11 +1,16 @@
-const settingsFile = './settings.json';
+const settingsFile = './config/settings.json';
 const defaultSettingsFile = './settings.default.json';
+const iconsPath = './config/icons';
 
 const fs = require('fs');
 
 if (!fs.existsSync(settingsFile)) {
     console.log('No settings found, creating default...');
     fs.copyFileSync(defaultSettingsFile, settingsFile);
+}
+
+if (!fs.existsSync(iconsPath)) {
+    fs.mkdirSync(iconsPath);
 }
 
 const settings = require(settingsFile);
@@ -26,6 +31,7 @@ app.listen(port, () => {
 
 app.use(express.static('build'));
 app.use(express.static('public'));
+app.use(express.static('config'));
 
 app.get("/settings", (req, res, next) => {
     const fs = require('fs');
@@ -51,7 +57,7 @@ function getFilename(file, newFileName) {
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "public/icons/"); 
+        cb(null, iconsPath + '/'); 
     },
     filename: function(req, file, cb) {
         cb(null, getFilename(file, req.body.linkId));

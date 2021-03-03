@@ -11,11 +11,11 @@ export default {
         iconPath() {
             let iconName = this.link.icon
 
-            if(typeof(iconName) === 'undefined') {
-                iconName = this.defaultIconName+'.png'
+            if(iconName) {
+                return '/icons/'+iconName
+            } else {
+                return 'dashi.png'
             }
-
-            return '/icons/'+iconName
         },
         defaultIconName() {
             return this.link.name.trim().toLowerCase().replace(/[^a-zA-Z0-9 -]/, "").replace(/\s/g, "-");

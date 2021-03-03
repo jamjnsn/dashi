@@ -1,6 +1,6 @@
 {
     "theme": {
-      "accentColor": "#F2C511",
+      "accentColor": "#1FBC9C",
       "topbarHasBackground": true
     },
     "modules": [
@@ -13,7 +13,7 @@
             {
                 "id": "0",
                 "name": "New link",
-                "icon": "dashi.png",
+                "icon": "",
                 "url": "#"
             }
           ]

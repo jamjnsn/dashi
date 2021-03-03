@@ -12,11 +12,6 @@
         <input class="input" type="text" v-model="data.linkList.name" />
     </div>
 
-    <!-- <div class="setting">
-        <label>Icon</label>
-        <input class="input" type="text" v-model="data.linkList.icon" />
-    </div> -->
-
     <div class="setting">
         <a class="button is-danger" @click="deleteSelf()">
             <feather type="trash-2"></feather>

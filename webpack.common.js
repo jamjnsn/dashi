@@ -3,7 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader');
 
-const settings = require("./settings.json");
+const settings = require("./config/settings.json");
 
 module.exports = {
     mode: 'development',

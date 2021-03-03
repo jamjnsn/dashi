@@ -98,7 +98,7 @@
                 this.settings.links.push({
                     id: uuid(),
                     name: "New link",
-                    icon: "dashi.png",
+                    icon: "",
                     url: "#"
                 })
             },

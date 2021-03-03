@@ -37,7 +37,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "resources", "app.html"),
-            title: process.env.PAGE_TITLE ?? "Dashi"
+            title: settings.pageTitle ?? "Dashi"
         }),
         new VueLoaderPlugin()
     ]

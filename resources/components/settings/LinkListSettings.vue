@@ -13,6 +13,13 @@
     </div>
 
     <div class="setting">
+        <label>Icon</label>
+        <div class="icon-select-container">
+            <feather-selector :type="data.linkList.icon" @iconSelected="iconSelected"></feather-selector>
+        </div>
+    </div>
+
+    <div class="setting">
         <a class="button is-danger" @click="deleteSelf()">
             <feather type="trash-2"></feather>
             <span>Delete</span>
@@ -22,9 +29,14 @@
 </template>
 
 <script>
+import FeatherSelector from '../FeatherSelector.vue'
 export default {
+  components: { FeatherSelector },
     props: ['data'],
     methods: {
+        iconSelected(newIcon) {
+            this.data.linkList.icon = newIcon
+        },
         deleteSelf() {
             let id = this.data.linkList.id
 

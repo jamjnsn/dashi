@@ -1,85 +1,85 @@
 <template>
-  <div>
-    <header>
-      <h3>Settings</h3>
-      <span class="close-button" @click="$root.$emit('settingsClosed')">
-        <feather type="x"></feather>
-      </span>
-    </header>
-    <div class="setting inline-field">
-      <label>Accent Color</label>
-      <div>
-        <v-swatches
-          v-model="settings.theme.accentColor"
-          show-fallback
-          fallback-input-type="color"
-          popover-x="left"
-          class="color-picker"
-        >
-        </v-swatches>
-      </div>
-    </div>
+	<div>
+		<header>
+			<h3>Settings</h3>
+			<span class="close-button" @click="$root.$emit('settingsClosed')">
+				<feather type="x"></feather>
+			</span>
+		</header>
+		<div class="setting inline-field">
+			<label>Accent Color</label>
+			<div>
+				<v-swatches
+					v-model="settings.theme.accentColor"
+					show-fallback
+					fallback-input-type="color"
+					popover-x="left"
+					class="color-picker"
+				>
+				</v-swatches>
+			</div>
+		</div>
 
-    <div class="setting inline-field">
-      <label>Topbar Background</label>
-      <div>
-        <Toggle v-model="settings.theme.topbarHasBackground"></Toggle>
-      </div>
-    </div>
+		<div class="setting inline-field">
+			<label>Topbar Background</label>
+			<div>
+				<Toggle v-model="settings.theme.topbarHasBackground"></Toggle>
+			</div>
+		</div>
 
-    <div class="setting inline-field">
-      <label>Add Category</label>
-      <div>
-        <a @click="addModule('link-list')" class="add-category-button">
-          <feather type="plus"></feather>
-        </a>
-      </div>
-    </div>
-  </div>
+		<div class="setting inline-field">
+			<label>Add Category</label>
+			<div>
+				<a @click="addModule('link-list')" class="add-category-button">
+					<feather type="plus"></feather>
+				</a>
+			</div>
+		</div>
+	</div>
 </template>
 
 <style scoped lang="scss">
 .add-category-button {
-  cursor: pointer;
+	cursor: pointer;
 
-  &:hover {
-    color: $green;
-  }
+	&:hover {
+		color: $green;
+	}
 }
 </style>
 
 <script>
-import VSwatches from "vue-swatches";
-import Toggle from "../Toggle.vue";
-import { v4 as uuid } from "uuid";
+import VSwatches from 'vue-swatches'
+import Toggle from '../Toggle.vue'
+import { v4 as uuid } from 'uuid'
 
-import modules from "/modules.json";
+import modules from '/modules.json'
 
 export default {
-  methods: {
-    addModule(type) {
-      let moduleDefinition = modules.find((obj) => {
-        return obj.type === type;
-      });
+	methods: {
+		addModule(type) {
+			let moduleDefinition = modules.find(obj => {
+				return obj.type === type
+			})
 
-      if (moduleDefinition) {
-        let module = {
-          id: uuid(),
-          type: type,
-          ...moduleDefinition.template,
-        };
+			if (moduleDefinition) {
+				let module = {
+					id: uuid(),
+					type: type,
+					...moduleDefinition.template
+				}
 
-        this.$settings.data.modules.push(module);
-      } else {
-        console.log("Module type " + type + " not found!");
-      }
-    },
-  },
-  data() {
-    return {
-      settings: this.$settings.data,
-    };
-  },
-  components: { VSwatches, Toggle },
-};
+				this.$settings.data.modules.push(module)
+			} else {
+				console.log('Module type ' + type + ' not found!')
+			}
+		}
+	},
+	data() {
+		return {
+			settings: this.$settings.data
+		}
+	},
+	components: { VSwatches, Toggle }
+}
 </script>

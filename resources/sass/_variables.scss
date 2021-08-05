@@ -3,13 +3,13 @@ $topbar-height: 50px;
 
 // Theme
 :root {
-  --accent: #6f42c1;
-  --accent-contrast: #fff;
-  --bg-color: #0a0a0a;
-  --fg-color: #fefefe;
-  --main-font: "Poppins", "Lato", BlinkMacSystemFont, -apple-system, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	--accent: #6f42c1;
+	--accent-contrast: #fff;
+	--bg-color: #0a0a0a;
+	--fg-color: #fefefe;
+	--main-font: 'Poppins', 'Lato', BlinkMacSystemFont, -apple-system,
+		'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+		'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 // Colors (from https://github.com/jgthms/bulma)

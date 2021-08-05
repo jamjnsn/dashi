@@ -1,10 +1,10 @@
 [
-    {
-        "type": "link-list",
-        "template": {
-            "name": "New Link List",
-            "icon": "smile",
-            "links": []
-        }
-    }
+	{
+		"type": "link-list",
+		"template": {
+			"name": "New Link List",
+			"icon": "smile",
+			"links": []
+		}
+	}
 ]

@@ -1,23 +1,23 @@
 {
-    "pageTitle": "Dashi",
-    "theme": {
-      "accentColor": "#1FBC9C",
-      "topbarHasBackground": true
-    },
-    "modules": [
-        {
-          "id": "0",
-          "type": "link-list",
-          "name": "Links",
-          "icon": "link-2",
-          "links": [
-            {
-                "id": "0",
-                "name": "New link",
-                "icon": "",
-                "url": "#"
-            }
-          ]
-        }
-    ]
+	"pageTitle": "Dashi",
+	"theme": {
+		"accentColor": "#1FBC9C",
+		"topbarHasBackground": true
+	},
+	"modules": [
+		{
+			"id": "0",
+			"type": "link-list",
+			"name": "Links",
+			"icon": "link-2",
+			"links": [
+				{
+					"id": "0",
+					"name": "New link",
+					"icon": "",
+					"url": "#"
+				}
+			]
+		}
+	]
 }

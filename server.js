@@ -1,73 +1,72 @@
-const settingsFile = './config/settings.json';
-const defaultSettingsFile = './settings.default.json';
-const iconsPath = './config/icons';
+const settingsFile = './config/settings.json'
+const defaultSettingsFile = './settings.default.json'
+const iconsPath = './config/icons'
 
-const fs = require('fs');
+const fs = require('fs')
 
 if (!fs.existsSync(settingsFile)) {
-    console.log('No settings found, creating default...');
-    fs.copyFileSync(defaultSettingsFile, settingsFile);
+	console.log('No settings found, creating default...')
+	fs.copyFileSync(defaultSettingsFile, settingsFile)
 }
 
 if (!fs.existsSync(iconsPath)) {
-    fs.mkdirSync(iconsPath);
+	fs.mkdirSync(iconsPath)
 }
 
-const settings = require(settingsFile);
+const settings = require(settingsFile)
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ?? 8000;
+const host = process.env.HOST ?? 'localhost'
+const port = process.env.PORT ?? 8000
 
-var express = require("express");
-var app = express();
+var express = require('express')
+var app = express()
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.listen(port, () => {
-    console.log('Server started on port ' + port.toString());
-});
+	console.log('Server started on port ' + port.toString())
+})
 
-app.use(express.static('build'));
-app.use(express.static('public'));
-app.use(express.static('config'));
+app.use(express.static('build'))
+app.use(express.static('public'))
+app.use(express.static('config'))
 
-app.get("/settings", (req, res, next) => {
-    const fs = require('fs');
-    let file = fs.readFileSync(settingsFile);
-    let settings = JSON.parse(file);
-    res.json(settings);
-});
+app.get('/settings', (req, res, next) => {
+	const fs = require('fs')
+	let file = fs.readFileSync(settingsFile)
+	let settings = JSON.parse(file)
+	res.json(settings)
+})
 
-app.post("/settings", (req, res) => {
-    const fs = require('fs');
-    fs.writeFileSync(settingsFile, JSON.stringify(req.body, null, 2));
-    res.send(200)
-});
+app.post('/settings', (req, res) => {
+	const fs = require('fs')
+	fs.writeFileSync(settingsFile, JSON.stringify(req.body, null, 2))
+	res.send(200)
+})
 
-
-const multer = require("multer");
+const multer = require('multer')
 
 function getFilename(file, newFileName) {
-    let ext = file.originalname.split('.').pop();
-    let filename = newFileName;
-    return filename + '.' + ext;
+	let ext = file.originalname.split('.').pop()
+	let filename = newFileName
+	return filename + '.' + ext
 }
 
 var storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, iconsPath + '/'); 
-    },
-    filename: function(req, file, cb) {
-        cb(null, getFilename(file, req.body.linkId));
-    }
-});
+	destination: function(req, file, cb) {
+		cb(null, iconsPath + '/')
+	},
+	filename: function(req, file, cb) {
+		cb(null, getFilename(file, req.body.linkId))
+	}
+})
 
-var upload = multer({ storage: storage });
+var upload = multer({ storage: storage })
 
-app.post("/icons/upload", upload.single("icon"), (req, res) => {
-    res.json({
-        fileName: getFilename(req.file, req.body.linkId)
-    })
-});
+app.post('/icons/upload', upload.single('icon'), (req, res) => {
+	res.json({
+		fileName: getFilename(req.file, req.body.linkId)
+	})
+})

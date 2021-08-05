@@ -10,10 +10,6 @@
 					:key="module.id"
 				>
 				</component>
-				<div class="module spacer"></div>
-				<div class="module spacer"></div>
-				<div class="module spacer"></div>
-				<div class="module spacer"></div>
 			</div>
 		</div>
 		<settings></settings>
@@ -127,9 +123,10 @@ i.feather {
 .modules {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 
 	.module {
-		flex: 1 0 auto;
+		flex: 0 0 auto;
 		width: 400px;
 
 		&:not(.spacer) {

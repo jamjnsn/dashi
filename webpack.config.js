@@ -1,6 +1,8 @@
 const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
 const { VueLoaderPlugin } = require('vue-loader')
 
 const settings = require('./config/settings.json')
@@ -22,7 +24,11 @@ module.exports = {
 			},
 			{
 				test: /\.css$/i,
-				use: ['style-loader', 'css-loader'],
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
+			},
+			{
+				test: /\.postcss$/,
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
 			},
 			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -44,5 +50,12 @@ module.exports = {
 			title: settings.pageTitle ?? 'Dashi',
 		}),
 		new VueLoaderPlugin(),
+
+		new BrowserSyncPlugin({
+			host: 'localhost',
+			port: 3000,
+			proxy: 'http://localhost:8000/',
+			files: ['src/**'],
+		}),
 	],
 }

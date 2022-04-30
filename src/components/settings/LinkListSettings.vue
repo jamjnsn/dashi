@@ -49,11 +49,13 @@ export default {
 
 			this.$delete(
 				settings.modules,
-				settings.modules.findIndex(obj => {
+				settings.modules.findIndex((obj) => {
 					return obj.id === id
 				})
 			)
-		}
-	}
+		},
+	},
 }
 </script>
+
+<style scoped lang="postcss"></style>

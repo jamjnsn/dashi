@@ -12,7 +12,7 @@
 					v-on:click.prevent
 					@click="
 						$root.$emit('settingsOpened', 'LinkListSettings', {
-							linkList: settings
+							linkList: settings,
 						})
 					"
 				>
@@ -62,7 +62,7 @@
 										'LinkSettings',
 										{
 											link: link,
-											parent: settings
+											parent: settings,
 										}
 									)
 								"
@@ -85,11 +85,11 @@ export default {
 	props: ['settings'],
 	data() {
 		return {
-			isDragging: false
+			isDragging: false,
 		}
 	},
 	components: {
-		draggable
+		draggable,
 	},
 	computed: {
 		dragOptions() {
@@ -97,9 +97,9 @@ export default {
 				animation: 200,
 				group: 'description',
 				disabled: false,
-				ghostClass: 'ghost'
+				ghostClass: 'ghost',
 			}
-		}
+		},
 	},
 	methods: {
 		handleEnd() {
@@ -113,21 +113,21 @@ export default {
 				id: uuid(),
 				name: 'New link',
 				icon: '',
-				url: '#'
+				url: '#',
 			})
 		},
 		getComponentData() {
 			return {
 				on: {
 					end: this.handleEnd,
-					input: this.inputChanged
+					input: this.inputChanged,
 				},
 				attrs: {
-					wrap: true
+					wrap: true,
 				},
 				props: {
-					value: this.activeNames
-				}
+					value: this.activeNames,
+				},
 			}
 		},
 		getIconPath(link) {
@@ -145,12 +145,12 @@ export default {
 				.toLowerCase()
 				.replace(/[^a-zA-Z0-9 -]/, '')
 				.replace(/\s/g, '-')
-		}
-	}
+		},
+	},
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .flex-center {
 	display: flex;
 	align-items: center;
@@ -200,7 +200,7 @@ export default {
 			opacity: 0;
 			transition: opacity 0.4s;
 
-			color: $white-bis;
+			color: var(--white-dark);
 			transition: all 0.1s;
 			text-align: center;
 			background-color: transparent;
@@ -214,9 +214,8 @@ export default {
 			}
 
 			&:hover {
-				color: $white;
+				color: var(--white);
 				opacity: 1 !important;
-				text-shadow: 0 1px 5px transparentize($white, 0.5);
 				background: var(--accent);
 			}
 		}
@@ -250,7 +249,7 @@ export default {
 	align-items: center;
 	color: inherit;
 	padding: 1em;
-	background-color: lighten($black, 10%);
+	background-color: var(--black-lighter);
 	border: 3px solid transparent;
 	transition: border-color 0.1s ease-in-out;
 	transition: transform 0.1s ease-in-out;
@@ -281,7 +280,7 @@ export default {
 	}
 
 	&.ghost {
-		border: 3px dashed $grey-dark;
+		border: 3px dashed var(--grey-dark);
 		background-color: transparent;
 
 		* {
@@ -301,7 +300,7 @@ export default {
 	}
 
 	p {
-		color: $grey;
+		color: var(--grey);
 	}
 }
 

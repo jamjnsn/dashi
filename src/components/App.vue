@@ -1,7 +1,7 @@
 <template>
 	<div id="app" :style="theme">
 		<topbar></topbar>
-		<div class="container" id="content">
+		<div id="content">
 			<div class="modules">
 				<component
 					v-for="module in settings.modules"
@@ -43,63 +43,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-* {
-	scrollbar-width: thin;
-	scrollbar-color: $grey-darker $grey;
-}
-
-*::-webkit-scrollbar {
-	width: 12px;
-}
-
-*::-webkit-scrollbar-track {
-	background: $grey-darker;
-}
-
-*::-webkit-scrollbar-thumb {
-	background-color: $grey;
-	padding: 0.2em;
-}
-
-* * {
-	box-sizing: border-box;
-	position: relative;
-}
-
-html,
-body,
-#app {
-	height: 100vh;
-}
-
-body {
-	font-family: var(--main-font);
-	font-size: 18px;
-	line-height: 1.4;
-
-	color: $fg-color;
-	background: $bg-color;
-}
-
-a {
-	text-decoration: none;
-}
-
-::selection {
-	background-color: var(--accent);
-	color: $white;
-}
-
-i.feather {
-	vertical-align: middle;
-}
-
-.has-background-accent {
-	background-color: var(--accent);
-	color: var(--accent-contrast);
-}
-
+<style scoped lang="postcss">
 #app {
 	width: 100vw;
 
@@ -114,12 +58,9 @@ i.feather {
 	justify-content: center;
 	padding: 2rem;
 }
-</style>
 
-<style scoped lang="scss">
 .modules {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 
 	.module {

@@ -38,16 +38,6 @@
 	</div>
 </template>
 
-<style scoped lang="scss">
-.add-category-button {
-	cursor: pointer;
-
-	&:hover {
-		color: $green;
-	}
-}
-</style>
-
 <script>
 import VSwatches from 'vue-swatches'
 import Toggle from '../Toggle.vue'
@@ -58,7 +48,7 @@ import modules from '/modules.json'
 export default {
 	methods: {
 		addModule(type) {
-			let moduleDefinition = modules.find(obj => {
+			let moduleDefinition = modules.find((obj) => {
 				return obj.type === type
 			})
 
@@ -66,20 +56,30 @@ export default {
 				let module = {
 					id: uuid(),
 					type: type,
-					...moduleDefinition.template
+					...moduleDefinition.template,
 				}
 
 				this.$settings.data.modules.push(module)
 			} else {
 				console.log('Module type ' + type + ' not found!')
 			}
-		}
+		},
 	},
 	data() {
 		return {
-			settings: this.$settings.data
+			settings: this.$settings.data,
 		}
 	},
-	components: { VSwatches, Toggle }
+	components: { VSwatches, Toggle },
 }
 </script>
+
+<style scoped lang="postcss">
+.add-category-button {
+	cursor: pointer;
+
+	&:hover {
+		color: var(--green);
+	}
+}
+</style>

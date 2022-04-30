@@ -8,6 +8,7 @@ import http from 'axios'
 // CSS resources
 import 'modern-css-reset'
 import '@fontsource/poppins'
+import './css/app.css'
 
 // Register components
 Vue.use(VueFeather)

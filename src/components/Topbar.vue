@@ -22,15 +22,15 @@
 export default {
 	data() {
 		return {
-			settings: this.$settings.data
+			settings: this.$settings.data,
 		}
-	}
+	},
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 nav {
-	height: $topbar-height;
+	height: var(--topbar-height);
 	display: flex;
 	align-items: center;
 	padding: 0;
@@ -54,8 +54,8 @@ nav.has-background {
 	display: inline-block;
 	padding: 0.5em;
 	text-align: right;
-	color: $white;
-	text-shadow: 0 1px 10px $black;
+	color: var(--white);
+	text-shadow: 0 1px 10px var(--black);
 	cursor: pointer;
 }
 </style>

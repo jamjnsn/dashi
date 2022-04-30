@@ -48,7 +48,7 @@ export default {
 			this.$emit('iconSelected', name)
 		},
 		filterIcons(query) {
-			this.filteredIcons = this.icons.filter(icon => {
+			this.filteredIcons = this.icons.filter((icon) => {
 				return icon.name.includes(query)
 			})
 		},
@@ -56,17 +56,17 @@ export default {
 			this.iconSelectOpen = !this.iconSelectOpen
 
 			if (this.iconSelectOpen) {
-				this.$nextTick(function() {
+				this.$nextTick(function () {
 					this.$refs.search.focus()
 				})
 			}
-		}
+		},
 	},
 	data() {
 		return {
 			iconSelectOpen: false,
 			icons: [],
-			filteredIcons: []
+			filteredIcons: [],
 		}
 	},
 	created() {
@@ -75,11 +75,11 @@ export default {
 		}
 
 		this.filteredIcons = this.icons
-	}
+	},
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .feather-selector {
 	position: relative;
 }
@@ -101,8 +101,8 @@ export default {
 	top: 2em;
 	width: 285px;
 	height: 330px;
-	background: $black-ter;
-	border: 0.5em solid $black-ter;
+	background: var(--black-lighter);
+	border: 0.5em solid var(--black-lighter);
 	z-index: 10;
 	border-radius: 5px;
 	box-shadow: 0 5px 45px rgba(0, 0, 0, 0.6);
@@ -136,7 +136,7 @@ export default {
 		box-sizing: content-box;
 
 		&:hover {
-			background: $black-bis;
+			background: var(--black-lighter);
 			border-radius: 3px;
 		}
 	}

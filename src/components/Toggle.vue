@@ -15,11 +15,11 @@
 
 <script>
 export default {
-	props: ['value']
+	props: ['value'],
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .toggle-button {
 	width: 24px;
 	height: 24px;
@@ -35,7 +35,7 @@ export default {
 	&.is-on {
 		span {
 			&:nth-child(1) {
-				background-color: $green;
+				background-color: var(--green);
 			}
 			&:nth-child(2) {
 				left: auto;
@@ -54,7 +54,7 @@ export default {
 			transform: translateY(-50%);
 			height: 3px;
 			width: 100%;
-			background: $grey;
+			background: var(--grey);
 			border-radius: 5em;
 		}
 
@@ -65,8 +65,8 @@ export default {
 			width: 0.75em;
 			height: 0.75em;
 			border-radius: 9999px;
-			background: $white;
-			box-shadow: 0 0 0.5em $black;
+			background: var(--white);
+			box-shadow: 0 0 0.5em var(--black);
 		}
 	}
 }

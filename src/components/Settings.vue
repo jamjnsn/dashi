@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="settings-container">
 		<transition name="fade-fast">
 			<div
 				class="overlay"
@@ -33,8 +33,8 @@ export default {
 			settings: this.$settings.data,
 			view: {
 				name: '',
-				data: []
-			}
+				data: [],
+			},
 		}
 	},
 	mounted() {
@@ -47,138 +47,130 @@ export default {
 		this.$root.$on('settingsClosed', () => {
 			this.isOpen = false
 		})
-	}
+	},
 }
 </script>
 
-<style lang="scss">
+<style lang="postcss">
 @import 'vue-swatches/dist/vue-swatches.css';
 
 .slide-enter-active,
 .slide-leave-active {
 	transition: all 0.2s ease;
 }
-.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.slide-enter,
+.slide-leave-to {
 	transform: translateX(100%);
 	opacity: 0;
 }
 
-header {
-	display: flex;
-	justify-content: space-between;
-	padding: 1rem;
-}
-
-.close-button {
-	cursor: pointer;
-	&:hover {
-		color: var(--accent);
-	}
-}
-
-.settings {
-	position: fixed;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	width: 400px;
-	background: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(50px);
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.7);
-	padding: 2em;
-}
-
-.setting {
-	background: $black-bis;
-	padding: 1em;
-	border-radius: 4px;
-
-	&:not(:last-child) {
-		margin-bottom: 0.5em;
+#settings-container {
+	header {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
 	}
 
-	&:not(.inline-field) label {
-		display: block;
-		margin-bottom: 0.25em;
-	}
-
-	label {
-		font-size: 0.95rem;
-	}
-
-	.input {
-		display: block;
-		background: $white;
-		width: 100%;
-		color: $black;
-		padding: 0.6em;
-		border-radius: 0.2em;
-		outline: 0;
-		border: 3px solid transparent;
-		transition: 0.1s ease;
-
-		&:focus {
-			border-color: $accent;
-		}
-	}
-}
-
-.inline-field {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.color-picker {
-	display: flex;
-	align-items: center;
-}
-
-.vue-swatches__trigger {
-	width: 24px !important;
-	height: 24px !important;
-}
-
-.button {
-	padding: 0.5em 0.75em;
-	border-radius: 0.2em;
-	transition: all 0.1s ease;
-	cursor: pointer;
-	background: $white;
-	color: $black;
-
-	&.is-danger {
-		background-color: $red;
-		color: $white;
+	.close-button {
+		cursor: pointer;
+		transition: all 0.1s ease;
 
 		&:hover {
-			background-color: darken($red, 5%);
+			color: var(--accent);
+			transform: scale(1.2);
 		}
 	}
-}
 
-.overlay {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	backdrop-filter: blur(1px);
-	background: rgba(0, 0, 0, 0.7);
-	pointer-events: none;
-
-	&.is-blocking {
-		pointer-events: all;
+	.settings {
+		position: fixed;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 400px;
+		background: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(50px);
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.7);
+		padding: 2em;
 	}
-}
-</style>
 
-<style scoped lang="scss">
-.fade-fast-enter-active,
-.fade-fast-leave-active {
-	transition: opacity 0.1s ease-in-out;
-}
-.fade-fast-enter, .fade-fast-leave-to /* .fade-leave-active below version 2.1.8 */ {
-	opacity: 0;
+	.setting {
+		background: var(--black-lighter);
+		padding: 1em;
+		border-radius: 4px;
+
+		&:not(:last-child) {
+			margin-bottom: 0.5em;
+		}
+
+		&:not(.inline-field) label {
+			display: block;
+			margin-bottom: 0.25em;
+		}
+
+		label {
+			font-size: 0.95rem;
+		}
+
+		.input {
+			display: block;
+			background: var(--white);
+			width: 100%;
+			color: var(--black);
+			padding: 0.6em;
+			border-radius: 0.2em;
+			outline: 0;
+			border: 3px solid transparent;
+			transition: 0.1s ease;
+
+			&:focus {
+				border-color: var(--accent);
+			}
+		}
+	}
+
+	.inline-field {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.color-picker {
+		display: flex;
+		align-items: center;
+	}
+
+	.vue-swatches__trigger {
+		width: 24px !important;
+		height: 24px !important;
+	}
+
+	.button {
+		padding: 0.5em 0.75em;
+		border-radius: 0.2em;
+		transition: all 0.1s ease;
+		cursor: pointer;
+		background: var(--white);
+		color: var(--black);
+
+		&.is-danger {
+			background-color: var(--red);
+			color: var(--white);
+		}
+	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		backdrop-filter: blur(1px);
+		background: rgba(0, 0, 0, 0.7);
+		pointer-events: none;
+
+		&.is-blocking {
+			pointer-events: all;
+		}
+	}
 }
 </style>

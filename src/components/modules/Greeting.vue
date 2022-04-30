@@ -7,13 +7,13 @@ export default {
 	props: ['settings'],
 	data() {
 		return {
-			...this.settings
+			...this.settings,
 		}
-	}
+	},
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="postcss">
 .greeting {
 	flex: 0 0 100%;
 	text-align: center;

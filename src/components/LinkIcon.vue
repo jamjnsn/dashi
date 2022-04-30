@@ -23,12 +23,12 @@ export default {
 				.toLowerCase()
 				.replace(/[^a-zA-Z0-9 -]/, '')
 				.replace(/\s/g, '-')
-		}
-	}
+		},
+	},
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .link-icon {
 	width: 50px;
 	height: 50px;

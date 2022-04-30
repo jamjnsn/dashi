@@ -70,7 +70,7 @@ export default {
 	props: ['data'],
 	data() {
 		return {
-			isUploading: false
+			isUploading: false,
 		}
 	},
 	methods: {
@@ -81,7 +81,7 @@ export default {
 
 			this.$delete(
 				this.data.parent.links,
-				this.data.parent.links.findIndex(obj => {
+				this.data.parent.links.findIndex((obj) => {
 					return obj.id === id
 				})
 			)
@@ -102,24 +102,24 @@ export default {
 				method: 'post',
 				url: '/icons/upload',
 				data: formData,
-				headers: { 'Content-Type': 'multipart/form-data' }
+				headers: { 'Content-Type': 'multipart/form-data' },
 			})
-				.then(response => {
+				.then((response) => {
 					return response.data
 				})
-				.then(data => {
+				.then((data) => {
 					self.updateIcon(data.fileName)
 					console.log(data.fileName)
 				})
-				.catch(function(error) {
+				.catch(function (error) {
 					console.log(error)
 				})
-		}
-	}
+		},
+	},
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
 .icon-selector {
 	position: relative;
 	display: block;
@@ -128,7 +128,7 @@ export default {
 	cursor: pointer;
 
 	&:hover {
-		filter: drop-shadow(0 0.1em 0.2em $black);
+		filter: drop-shadow(0 0.1em 0.2em var(--black));
 		.upload-button-container {
 			opacity: 1;
 		}

@@ -52,19 +52,39 @@ function getFilename(file, newFileName) {
 	return filename + '.' + ext
 }
 
-var storage = multer.diskStorage({
+var iconStorage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, iconsPath + '/')
+		cb(null, './config/icons')
 	},
 	filename: function (req, file, cb) {
 		cb(null, getFilename(file, req.body.linkId))
 	},
 })
 
-var upload = multer({ storage: storage })
+var wallpaperStorage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, './config')
+	},
+	filename: function (req, file, cb) {
+		cb(null, getFilename(file, 'wallpaper'))
+	},
+})
 
-app.post('/icons/upload', upload.single('icon'), (req, res) => {
+var uploadIcon = multer({ storage: iconStorage })
+var uploadWallpaper = multer({ storage: wallpaperStorage })
+
+app.post('/icons/upload', uploadIcon.single('icon'), (req, res) => {
 	res.json({
 		fileName: getFilename(req.file, req.body.linkId),
 	})
 })
+
+app.post(
+	'/wallpaper/upload',
+	uploadWallpaper.single('wallpaper'),
+	(req, res) => {
+		res.json({
+			fileName: getFilename(req.file, 'wallpaper'),
+		})
+	}
+)

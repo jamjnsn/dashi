@@ -134,6 +134,14 @@ export default {
 		}
 	}
 
+	.file-selector {
+		cursor: pointer;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 10;
+	}
+
 	.upload-button-container {
 		opacity: 0;
 		transition: opacity 0.1s ease-in-out;
@@ -143,14 +151,6 @@ export default {
 		left: 0;
 		bottom: 0;
 		cursor: pointer;
-
-		.file-selector {
-			cursor: pointer;
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 10;
-		}
 
 		.upload-icon-container {
 			cursor: pointer;

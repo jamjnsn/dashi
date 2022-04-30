@@ -26,6 +26,8 @@
 	--accent: #6f42c1;
 	--accent-contrast: #fff;
 
+	--card-background: var(--black-lighter);
+
 	--bg-color: #0a0a0a;
 	--fg-color: #fefefe;
 
@@ -118,5 +120,9 @@ i.feather {
 }
 
 .control-button {
+	cursor: pointer;
+}
+
+::-webkit-file-upload-button {
 	cursor: pointer;
 }

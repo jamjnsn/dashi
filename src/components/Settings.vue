@@ -119,7 +119,7 @@ export default {
 			padding: 0.6em;
 			border-radius: 0.2em;
 			outline: 0;
-			border: 3px solid transparent;
+			border: 3px solid var(--grey);
 			transition: 0.1s ease;
 
 			&:focus {

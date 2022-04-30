@@ -251,7 +251,8 @@ export default {
 	align-items: center;
 	color: inherit;
 	padding: 1em;
-	background-color: var(--black-lighter);
+	background-color: var(--card-background);
+	backdrop-filter: blur(20px);
 	border: 3px solid transparent;
 	transition: border-color 0.1s ease-in-out;
 	transition: transform 0.1s ease-in-out;

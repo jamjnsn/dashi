@@ -30,6 +30,11 @@ export default {
 			return {
 				'--accent': this.settings.theme.accentColor,
 				'--main-font': this.settings.theme.mainFont,
+				'--wallpaper': `url(${this.settings.theme.wallpaper})`,
+				'--card-background':
+					this.settings.theme.wallpaper == ''
+						? 'var(--black-lighter)'
+						: 'rgba(0,0,0,0.35)',
 			}
 		},
 	},
@@ -55,6 +60,11 @@ export default {
 	font-family: var(--main-font), 'Lato', BlinkMacSystemFont, -apple-system,
 		'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 		'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+	background-image: var(--wallpaper);
+	background-size: cover;
+
+	transition: background-image 0.2s ease;
 }
 
 #content {

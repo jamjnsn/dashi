@@ -3,7 +3,8 @@
 	"theme": {
 		"accentColor": "#1FBC9C",
 		"topbarHasBackground": true,
-		"mainFont": "Poppins"
+		"mainFont": "Poppins",
+		"wallpaper": ""
 	},
 	"modules": [
 		{

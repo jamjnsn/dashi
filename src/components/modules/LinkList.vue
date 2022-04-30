@@ -171,7 +171,7 @@ export default {
 		align-items: center;
 		justify-content: flex-end;
 
-		font-weight: bold;
+		font-weight: normal;
 
 		span {
 			margin-left: 0.2em;

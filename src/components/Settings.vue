@@ -108,7 +108,7 @@ export default {
 		}
 
 		label {
-			font-size: 0.95rem;
+			font-size: 0.95em;
 		}
 
 		.input {

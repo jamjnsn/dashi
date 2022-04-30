@@ -45,6 +45,7 @@ export default {
 
 <style scoped lang="postcss">
 #app {
+	height: 100vh;
 	width: 100vw;
 
 	display: flex;

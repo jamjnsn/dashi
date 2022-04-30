@@ -35,43 +35,34 @@
 				@start="isDragging = true"
 				@end="isDragging = false"
 			>
-				<transition-group
-					type="transition"
-					:name="!isDragging ? 'flip-list' : 'fade'"
+				<a
+					v-for="link in settings.links"
+					:href="link.url"
+					:key="link.id"
+					class="link"
 				>
-					<a
-						v-for="link in settings.links"
-						:href="link.url"
-						:key="link.id"
-						class="link"
-					>
-						<link-icon class="icon-container" :link="link" />
+					<link-icon class="icon-container" :link="link" />
 
-						<div class="details">
-							<h3>{{ link.name }}</h3>
-							<p>{{ link.description }}</p>
-						</div>
+					<div class="details">
+						<h3>{{ link.name }}</h3>
+						<p>{{ link.description }}</p>
+					</div>
 
-						<div class="controls">
-							<span
-								class="edit-link-button"
-								v-on:click.prevent
-								@click="
-									$root.$emit(
-										'settingsOpened',
-										'LinkSettings',
-										{
-											link: link,
-											parent: settings,
-										}
-									)
-								"
-							>
-								<feather type="settings"></feather>
-							</span>
-						</div>
-					</a>
-				</transition-group>
+					<div class="controls">
+						<span
+							class="edit-link-button"
+							v-on:click.prevent
+							@click="
+								$root.$emit('settingsOpened', 'LinkSettings', {
+									link: link,
+									parent: settings,
+								})
+							"
+						>
+							<feather type="settings"></feather>
+						</span>
+					</div>
+				</a>
 			</draggable>
 		</div>
 	</div>
@@ -223,13 +214,24 @@ export default {
 }
 
 .module {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	&:hover .control-button {
 		opacity: 0.3;
 	}
 }
 
+.module-body {
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
 .link-list {
 	min-height: 100px;
+	height: 100%;
 }
 
 .link-list:not(.is-dragging) {

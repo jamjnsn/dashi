@@ -5,6 +5,8 @@ import App from './components/App.vue'
 import settings from './settings'
 import http from 'axios'
 
+// CSS resources
+import 'modern-css-reset'
 import '@fontsource/poppins'
 
 // Register components

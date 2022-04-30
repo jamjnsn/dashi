@@ -44,8 +44,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../css/reset.css';
-
 * {
 	scrollbar-width: thin;
 	scrollbar-color: $grey-darker $grey;

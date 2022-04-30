@@ -9,12 +9,12 @@ module.exports = merge(common, {
 	mode: 'production',
 	devtool: 'source-map',
 	output: {
-		publicPath: ''
+		publicPath: '',
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'app.css'
-		})
+			filename: 'app.css',
+		}),
 	],
 	module: {
 		rules: [
@@ -26,11 +26,11 @@ module.exports = merge(common, {
 					{
 						loader: 'sass-loader',
 						options: {
-							additionalData: `@import "resources/sass/utilities.scss";`
-						}
-					}
-				]
-			}
-		]
-	}
+							additionalData: `@import "src/sass/utilities.scss";`,
+						},
+					},
+				],
+			},
+		],
+	},
 })

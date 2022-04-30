@@ -20,7 +20,7 @@
 export default {
 	data() {
 		return {
-			settings: this.$settings.data
+			settings: this.$settings.data,
 		}
 	},
 	mounted() {},
@@ -28,24 +28,23 @@ export default {
 	computed: {
 		theme() {
 			return {
-				'--accent': this.settings.theme.accentColor
+				'--accent': this.settings.theme.accentColor,
 			}
-		}
+		},
 	},
 	watch: {
 		settings: {
 			handler(val) {
 				this.$settings.save()
 			},
-			deep: true
-		}
-	}
+			deep: true,
+		},
+	},
 }
 </script>
 
 <style lang="scss">
 @import '../css/reset.css';
-@import '../css/fonts/poppins.css';
 
 * {
 	scrollbar-width: thin;

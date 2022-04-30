@@ -1,8 +1,13 @@
+const fs = require('fs')
+const express = require('express')
+const bodyParser = require('body-parser')
+const multer = require('multer')
+
 const settingsFile = './config/settings.json'
 const defaultSettingsFile = './settings.default.json'
 const iconsPath = './config/icons'
 
-const fs = require('fs')
+const serverConfig = require('./server_config.json')
 
 if (!fs.existsSync(settingsFile)) {
 	console.log('No settings found, creating default...')
@@ -13,40 +18,33 @@ if (!fs.existsSync(iconsPath)) {
 	fs.mkdirSync(iconsPath)
 }
 
-const settings = require(settingsFile)
-
-const host = process.env.HOST ?? 'localhost'
-const port = process.env.PORT ?? 8000
-
-var express = require('express')
 var app = express()
 
-var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.listen(port, () => {
-	console.log('Server started on port ' + port.toString())
+app.listen(serverConfig.port, () => {
+	console.log('Server started on port ' + serverConfig.port.toString())
 })
 
-app.use(express.static('build'))
-app.use(express.static('public'))
+// Add static directories
+app.use(express.static('dist'))
+app.use(express.static('static'))
 app.use(express.static('config'))
 
+// Settings routes
 app.get('/settings', (req, res, next) => {
-	const fs = require('fs')
 	let file = fs.readFileSync(settingsFile)
 	let settings = JSON.parse(file)
 	res.json(settings)
 })
 
 app.post('/settings', (req, res) => {
-	const fs = require('fs')
 	fs.writeFileSync(settingsFile, JSON.stringify(req.body, null, 2))
 	res.send(200)
 })
 
-const multer = require('multer')
+// Icon upload handling
 
 function getFilename(file, newFileName) {
 	let ext = file.originalname.split('.').pop()
@@ -55,18 +53,18 @@ function getFilename(file, newFileName) {
 }
 
 var storage = multer.diskStorage({
-	destination: function(req, file, cb) {
+	destination: function (req, file, cb) {
 		cb(null, iconsPath + '/')
 	},
-	filename: function(req, file, cb) {
+	filename: function (req, file, cb) {
 		cb(null, getFilename(file, req.body.linkId))
-	}
+	},
 })
 
 var upload = multer({ storage: storage })
 
 app.post('/icons/upload', upload.single('icon'), (req, res) => {
 	res.json({
-		fileName: getFilename(req.file, req.body.linkId)
+		fileName: getFilename(req.file, req.body.linkId),
 	})
 })

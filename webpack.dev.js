@@ -12,8 +12,8 @@ module.exports = merge(common, {
 			host: 'localhost',
 			port: 3000,
 			proxy: 'http://localhost:8000/',
-			files: ['resources/**']
-		})
+			files: ['src/**'],
+		}),
 	],
 	module: {
 		rules: [
@@ -26,11 +26,11 @@ module.exports = merge(common, {
 					{
 						loader: 'sass-loader',
 						options: {
-							additionalData: `@import "resources/sass/utilities.scss";`
-						}
-					}
-				]
-			}
-		]
-	}
+							additionalData: `@import "src/sass/utilities.scss";`,
+						},
+					},
+				],
+			},
+		],
+	},
 })

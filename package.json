@@ -5,15 +5,15 @@
 	"main": "server.js",
 	"scripts": {
 		"build": "webpack --config webpack.prod.js",
-		"build-dev": "webpack --config webpack.dev.js",
-		"dev": "webpack --watch --config webpack.dev.js & npm start",
-		"serve": "npm run build && npm start",
-		"docker": "docker build -t jamjnsn/dashi . && docker run --rm -p 8000:8000 -d jamjnsn/dashi"
+		"dev": "node ./server.js & webpack --watch --config webpack.dev.js && kill $!",
+		"serve": "npm run build && node ./server.js",
+		"docker-test": "docker build -t jamjnsn/dashi . && docker run --rm -p 8000:8000 -d jamjnsn/dashi"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@fontsource/poppins": "^4.5.5",
 		"axios": ">=0.21.1",
 		"body-parser": "^1.19.0",
 		"express": "^4.17.1",

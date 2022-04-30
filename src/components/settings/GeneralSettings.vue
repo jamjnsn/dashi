@@ -20,6 +20,13 @@
 			</div>
 		</div>
 
+		<div class="setting">
+			<label>Font</label>
+			<div>
+				<input v-model="settings.theme.mainFont" class="input" />
+			</div>
+		</div>
+
 		<div class="setting inline-field">
 			<label>Topbar Background</label>
 			<div>

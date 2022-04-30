@@ -29,6 +29,7 @@ export default {
 		theme() {
 			return {
 				'--accent': this.settings.theme.accentColor,
+				'--main-font': this.settings.theme.mainFont,
 			}
 		},
 	},
@@ -50,6 +51,10 @@ export default {
 
 	display: flex;
 	flex-direction: column;
+
+	font-family: var(--main-font), 'Lato', BlinkMacSystemFont, -apple-system,
+		'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+		'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 #content {

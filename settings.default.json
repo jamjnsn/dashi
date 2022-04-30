@@ -2,7 +2,8 @@
 	"pageTitle": "Dashi",
 	"theme": {
 		"accentColor": "#1FBC9C",
-		"topbarHasBackground": true
+		"topbarHasBackground": true,
+		"mainFont": "Poppins"
 	},
 	"modules": [
 		{

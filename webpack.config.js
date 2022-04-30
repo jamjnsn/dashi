@@ -50,7 +50,6 @@ module.exports = {
 			title: settings.pageTitle ?? 'Dashi',
 		}),
 		new VueLoaderPlugin(),
-
 		new BrowserSyncPlugin({
 			host: 'localhost',
 			port: 3000,

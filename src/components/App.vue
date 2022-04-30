@@ -68,16 +68,13 @@ export default {
 }
 
 #content {
-	overflow-y: auto;
-	flex: 1 1 auto;
-	display: flex;
-	justify-content: center;
-	padding: 2rem;
 }
 
 .modules {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
+	height: auto;
 
 	.module {
 		flex: 0 0 auto;

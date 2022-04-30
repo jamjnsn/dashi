@@ -41,7 +41,7 @@ app.get('/settings', (req, res, next) => {
 
 app.post('/settings', (req, res) => {
 	fs.writeFileSync(settingsFile, JSON.stringify(req.body, null, 2))
-	res.send(200)
+	res.sendStatus(200)
 })
 
 // Icon upload handling

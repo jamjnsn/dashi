@@ -77,7 +77,7 @@ export default {
 	flex-wrap: wrap;
 	height: auto;
 
-	padding: 1em;
+	padding: 2em;
 	margin: 0 auto;
 	max-width: 1400px;
 

@@ -164,7 +164,6 @@ export default {
 
 			.icon {
 				box-sizing: content-box;
-				background: var(--accent-color);
 				padding: 0.2em;
 				border-radius: 100%;
 			}

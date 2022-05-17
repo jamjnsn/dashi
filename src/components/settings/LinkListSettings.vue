@@ -22,19 +22,44 @@
 			</div>
 		</div>
 
+		<div class="setting inline-field">
+			<label>Accent Color</label>
+			<div>
+				<div class="buttons">
+					<v-swatches
+						v-model="data.linkList.accentColor"
+						show-fallback
+						fallback-input-type="color"
+						popover-x="left"
+						class="color-picker"
+					>
+					</v-swatches>
+
+					<settings-button
+						icon="x"
+						@click="clearAccentColor"
+						v-if="data.linkList.accentColor != null"
+					>
+						Clear
+					</settings-button>
+				</div>
+			</div>
+		</div>
+
 		<div class="setting">
-			<a class="button is-danger" @click="deleteSelf()">
-				<feather type="trash-2"></feather>
-				<span>Delete</span>
-			</a>
+			<settings-button type="danger" icon="trash-2" @click="deleteSelf()"
+				>Delete</settings-button
+			>
 		</div>
 	</div>
 </template>
 
 <script>
+import VSwatches from 'vue-swatches'
 import FeatherSelector from '../FeatherSelector.vue'
+
 export default {
-	components: { FeatherSelector },
+	components: { FeatherSelector, VSwatches },
 	props: ['data'],
 	methods: {
 		iconSelected(newIcon) {
@@ -53,6 +78,9 @@ export default {
 					return obj.id === id
 				})
 			)
+		},
+		clearAccentColor() {
+			this.data.linkList.accentColor = null
 		},
 	},
 }

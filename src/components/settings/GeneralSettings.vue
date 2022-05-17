@@ -29,10 +29,14 @@
 
 		<div class="setting">
 			<label>Wallpaper</label>
-			<div class="background-selector">
-				<div class="button is-primary upload-button">
-					<feather type="upload" size="22"></feather>
-					<span>Upload</span>
+			<div class="background-selector buttons">
+				<div class="button">
+					<div class="button-container">
+						<span class="icon">
+							<feather type="upload" size="16" />
+						</span>
+						<span class="button-label">Upload</span>
+					</div>
 					<input
 						type="file"
 						class="file-selector"
@@ -42,13 +46,14 @@
 						accept="image/*"
 					/>
 				</div>
-				<div
-					class="button is-danger"
+
+				<settings-button
+					icon="x"
+					type="ghost"
 					v-if="settings.theme.wallpaper !== ''"
 					@click="removeBackground"
 				>
-					<feather type="x"></feather>
-				</div>
+				</settings-button>
 			</div>
 		</div>
 
@@ -56,6 +61,13 @@
 			<label>Topbar Background</label>
 			<div>
 				<Toggle v-model="settings.theme.topbarHasBackground"></Toggle>
+			</div>
+		</div>
+
+		<div class="setting inline-field">
+			<label>Module Background</label>
+			<div>
+				<Toggle v-model="settings.theme.modulesHaveBackground"></Toggle>
 			</div>
 		</div>
 
@@ -154,21 +166,15 @@ export default {
 
 .file-selector {
 	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	cursor: pointer;
 	opacity: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 100%;
 }
 
 .upload-button {
-	flex: 1 1 auto;
-	text-align: center;
-
-	&:not(:last-child) {
-		margin-right: 0.5em;
-	}
+	position: static;
 }
 </style>

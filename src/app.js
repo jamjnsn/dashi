@@ -1,9 +1,21 @@
 import Vue from 'vue'
-import VueFeather from 'vue-feather'
 import App from './components/App.vue'
 
 import settings from './settings'
 import http from 'axios'
+
+import VueFeather from 'vue-feather'
+
+// Import all UI components
+const uiComponents = require.context('./components/ui', true, /\.vue$/i)
+uiComponents
+	.keys()
+	.map((key) =>
+		Vue.component(
+			key.split('/').pop().split('.')[0],
+			uiComponents(key).default
+		)
+	)
 
 // CSS resources
 import 'modern-css-reset'

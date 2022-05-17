@@ -1,5 +1,11 @@
 <template>
-	<div class="module">
+	<div
+		class="module"
+		:class="{
+			'has-background': $settings.data.theme.modulesHaveBackground,
+		}"
+		:style="theme"
+	>
 		<div class="module-header">
 			<h2 class="module-title">
 				<feather :type="settings.icon" size="20"></feather>
@@ -71,6 +77,7 @@
 <script>
 import draggable from 'vuedraggable'
 import { v4 as uuid } from 'uuid'
+import colorSet from '../../colorSet'
 
 export default {
 	props: ['settings'],
@@ -89,6 +96,19 @@ export default {
 				group: 'description',
 				disabled: false,
 				ghostClass: 'ghost',
+			}
+		},
+		theme() {
+			let accent = colorSet(
+				this.settings.accentColor ??
+					this.$settings.data.theme.accentColor
+			)
+
+			return {
+				...accent.toTheme('accent'),
+				'--module-body-background': accent.normal.darken(0.8),
+				'--module-link-background': accent.normal.darken(0.9),
+				'--module-header-color': accent.normal.darken(0.85),
 			}
 		},
 	},
@@ -191,21 +211,18 @@ export default {
 			opacity: 0;
 			transition: opacity 0.4s;
 
-			color: var(--white-dark);
 			transition: all 0.1s;
 			text-align: center;
 			background-color: transparent;
 			border-radius: 5px;
 			display: block;
 			transition: all 0.1s ease-in-out;
-			padding: 0.1em 0.5em;
 
 			&:not(:last-child) {
 				margin-right: 0.3em;
 			}
 
 			&:hover {
-				color: var(--white);
 				opacity: 1 !important;
 				background: var(--accent);
 			}
@@ -269,8 +286,7 @@ export default {
 	}
 
 	&:hover {
-		color: inherit;
-		transform: scale(1.02);
+		border-color: var(--accent-darker) !important;
 
 		.edit-link-button {
 			opacity: 0.3;
@@ -282,7 +298,7 @@ export default {
 	}
 
 	&.ghost {
-		border: 3px dashed var(--grey-dark);
+		border: 3px dashed var(--accent-lighter);
 		background-color: transparent;
 
 		* {
@@ -311,14 +327,40 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 48px;
-	height: 48px;
-	filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.25));
+	width: 42px;
+	height: 42px;
 
 	img {
 		object-fit: contain;
 		object-position: center center;
 		border-radius: 3px;
+	}
+}
+
+.module.has-background {
+	color: var(--accent);
+
+	.module-header {
+		background-color: var(--accent);
+		color: var(--module-header-color);
+		border-radius: 0.4em 0.4em 0 0;
+	}
+
+	.module-body {
+		padding: 0.75em;
+		background-color: var(--module-body-background);
+		border: 0.3em solid var(--accent);
+		border-top: 0;
+		border-radius: 0 0 0.4em 0.4em;
+	}
+
+	.link {
+		background: var(--module-link-background);
+	}
+
+	.details p {
+		color: var(--accent);
+		opacity: 0.7;
 	}
 }
 </style>

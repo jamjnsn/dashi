@@ -17,6 +17,9 @@
 </template>
 
 <script>
+import colorSet from '../colorSet'
+import Color from 'color'
+
 export default {
 	data() {
 		return {
@@ -27,8 +30,10 @@ export default {
 	methods: {},
 	computed: {
 		theme() {
+			let accent = colorSet(this.settings.theme.accentColor)
+
 			return {
-				'--accent': this.settings.theme.accentColor,
+				...accent.toTheme('accent'),
 				'--main-font': this.settings.theme.mainFont,
 				'--wallpaper': `url(${this.settings.theme.wallpaper})`,
 				'--card-background':
@@ -97,7 +102,7 @@ export default {
 		}
 
 		&:not(.spacer) {
-			padding: 1rem;
+			padding: 0.5rem;
 		}
 	}
 }

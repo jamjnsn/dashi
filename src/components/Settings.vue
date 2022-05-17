@@ -76,7 +76,7 @@ export default {
 		transition: all 0.1s ease;
 
 		&:hover {
-			color: var(--accent);
+			color: var(--primary);
 			transform: scale(1.2);
 		}
 	}
@@ -87,7 +87,7 @@ export default {
 		top: 0;
 		bottom: 0;
 		width: 400px;
-		background: rgba(0, 0, 0, 0.7);
+		background: rgba(0, 0, 0, 0.99);
 		backdrop-filter: blur(50px);
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.7);
 		padding: 2em;
@@ -144,17 +144,65 @@ export default {
 		height: 24px !important;
 	}
 
+	.buttons {
+		display: flex;
+		align-items: center;
+
+		& > * {
+			display: block;
+			flex: 0 0 auto;
+
+			&:not(:last-child) {
+				margin-right: 0.4em;
+			}
+		}
+	}
+
 	.button {
-		padding: 0.5em 0.75em;
-		border-radius: 0.2em;
+		display: inline-block;
+		padding: 0.65em 1em;
+		border-radius: 0.4em;
 		transition: all 0.1s ease;
 		cursor: pointer;
-		background: var(--white);
+		background-color: var(--primary);
 		color: var(--black);
 
-		&.is-danger {
+		&:hover {
+			background-color: var(--primary-dark);
+		}
+
+		.button-container {
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
+
+		.icon {
+			display: flex;
+			align-items: center;
+
+			&:not(:last-child) {
+				margin-right: 0.4em;
+			}
+		}
+
+		&[buttontype='danger'] {
 			background-color: var(--red);
 			color: var(--white);
+
+			&:hover {
+				background-color: var(--red);
+			}
+		}
+
+		&[buttontype='ghost'] {
+			background-color: transparent;
+			color: currentColor;
+			padding-left: 0;
+			padding-right: 0;
+
+			&:hover {
+			}
 		}
 	}
 
@@ -164,9 +212,18 @@ export default {
 		right: 0;
 		bottom: 0;
 		left: 0;
-		backdrop-filter: blur(1px);
-		background: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(5px);
+		background: rgba(0, 0, 0, 0.8);
 		pointer-events: none;
+
+		/* if backdrop support: very transparent and blurred */
+		@supports (
+			(-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
+		) {
+			background-color: rgba(255, 255, 255, 0.5);
+			-webkit-backdrop-filter: blur(2em);
+			backdrop-filter: blur(2em);
+		}
 
 		&.is-blocking {
 			pointer-events: all;

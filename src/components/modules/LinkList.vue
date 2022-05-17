@@ -249,7 +249,7 @@ export default {
 	display: flex;
 	align-items: center;
 	color: inherit;
-	padding: 1em;
+	padding: 0.9em;
 	background-color: var(--card-background);
 	backdrop-filter: blur(20px);
 	border: 3px solid transparent;
@@ -295,7 +295,7 @@ export default {
 	margin-left: 1em;
 	flex: 1 1 auto;
 	line-height: 1.2;
-	font-size: 1.1rem;
+	font-size: 1em;
 
 	h3 {
 		font-size: 1.2em;
@@ -308,14 +308,15 @@ export default {
 
 .icon-container {
 	flex: 0 0 auto;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 48px;
 	height: 48px;
 
 	img {
-		display: block;
-		width: auto;
-		height: 100%;
+		object-fit: contain;
+		object-position: center center;
 		border-radius: 3px;
 	}
 }

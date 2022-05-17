@@ -30,8 +30,6 @@ export default {
 
 <style scoped lang="postcss">
 .link-icon {
-	width: 50px;
-	height: 50px;
 	display: block;
 	border-radius: 4px;
 	object-fit: contain;

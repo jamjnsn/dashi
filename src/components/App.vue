@@ -72,13 +72,29 @@ export default {
 
 .modules {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+
 	flex-wrap: wrap;
 	height: auto;
 
+	padding: 1em;
+	margin: 0 auto;
+	max-width: 1400px;
+
 	.module {
-		flex: 0 0 auto;
-		width: 400px;
+		flex: 0 0 100%;
+
+		@media only screen and (min-width: 768px) {
+			flex: 0 1 50%;
+		}
+
+		@media only screen and (min-width: 1024px) {
+			flex: 0 1 33.3%;
+		}
+
+		@media only screen and (min-width: 1600px) {
+			flex: 0 1 25%;
+		}
 
 		&:not(.spacer) {
 			padding: 1rem;

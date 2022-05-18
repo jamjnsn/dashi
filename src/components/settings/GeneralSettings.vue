@@ -86,7 +86,7 @@
 import http from 'axios'
 
 import VSwatches from 'vue-swatches'
-import Toggle from '../Toggle.vue'
+import Toggle from '../ui/ToggleButton.vue'
 import { v4 as uuid } from 'uuid'
 
 import modules from '/modules.json'

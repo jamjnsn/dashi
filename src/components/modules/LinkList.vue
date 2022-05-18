@@ -210,21 +210,18 @@ export default {
 		.control-button {
 			opacity: 0;
 			transition: opacity 0.4s;
-
 			transition: all 0.1s;
 			text-align: center;
-			background-color: transparent;
 			border-radius: 5px;
 			display: block;
 			transition: all 0.1s ease-in-out;
 
 			&:not(:last-child) {
-				margin-right: 0.3em;
+				margin-right: 0.4em;
 			}
 
 			&:hover {
 				opacity: 1 !important;
-				background: var(--accent);
 			}
 		}
 	}
@@ -361,6 +358,10 @@ export default {
 	.details p {
 		color: var(--accent);
 		opacity: 0.7;
+	}
+
+	.control-button {
+		padding: 0;
 	}
 }
 </style>

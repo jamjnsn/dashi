@@ -35,7 +35,7 @@ export default {
 	&.is-on {
 		span {
 			&:nth-child(1) {
-				background-color: var(--green);
+				background-color: var(--success);
 			}
 			&:nth-child(2) {
 				left: auto;

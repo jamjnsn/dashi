@@ -12,24 +12,26 @@
 	--grey: hsl(0, 0%, 48%);
 	--grey-light: hsl(0, 0%, 71%);
 	--grey-lighter: hsl(0, 0%, 86%);
-	--grey-lightest: hsl(0, 0%, 93%);
 
-	--orange: hsl(14, 100%, 53%);
-	--yellow: hsl(44, 100%, 77%);
-	--green: hsl(153, 53%, 53%);
-	--turquoise: hsl(171, 100%, 41%);
-	--cyan: hsl(207, 61%, 53%);
-	--blue: hsl(229, 53%, 53%);
-	--purple: hsl(271, 100%, 71%);
-	--red: hsl(348, 86%, 61%);
+	--primary-hs: 171, 100%;
+	--primary-l: 41%;
+	--primary: hsl(var(--primary-hs), var(--primary-l));
 
-	--primary: hsl(171, 100%, 41%);
-	--primary-dark: hsl(171, 100%, 35%);
+	--danger-hs: 348, 86%;
+	--danger-l: 61%;
+	--danger: hsl(var(--danger-hs), var(--danger-l));
+
+	--success-hs: 153, 53%;
+	--success-l: 53%;
+	--success: hsl(var(--success-hs), var(--success-l));
+
+	--warning-hs: 44, 100%;
+	--warning-l: 77%;
+	--warning: hsl(var(--warning-hs), var(--warning-l));
 
 	--card-background: var(--black-lighter);
 
-	--bg-color: #0a0a0a;
-	--fg-color: #fefefe;
+	--background-color: hsl(0, 0%, 4%);
 
 	--main-font: 'Poppins';
 
@@ -77,8 +79,8 @@ body {
 	font-size: normal;
 	line-height: 1.4;
 
-	color: var(--fg-color);
-	background: var(--bg-color);
+	color: hsl(0, 0%, 99%);
+	background-color: var(--background-color);
 }
 
 a {

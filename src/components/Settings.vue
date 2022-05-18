@@ -65,6 +65,7 @@ export default {
 }
 
 #settings-container {
+	font-family: 'Poppins';
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -168,7 +169,10 @@ export default {
 		color: var(--black);
 
 		&:hover {
-			background-color: var(--primary-dark);
+			background-color: hsl(
+				var(--primary-hs),
+				calc(var(--primary-l) - 5%)
+			);
 		}
 
 		.button-container {
@@ -187,11 +191,14 @@ export default {
 		}
 
 		&[buttontype='danger'] {
-			background-color: var(--red);
+			background-color: var(--danger);
 			color: var(--white);
 
 			&:hover {
-				background-color: var(--red);
+				background-color: hsl(
+					var(--danger-hs),
+					calc(var(--danger-l) - 5%)
+				);
 			}
 		}
 
